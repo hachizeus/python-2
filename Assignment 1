@@ -1,0 +1,32 @@
+# Base class
+class Superhero:
+    def __init__(self, name, power, origin):
+        self.name = name
+        self._origin = origin  # Protected attribute
+        self.__power = power   # Private attribute (encapsulation)
+
+    def reveal_identity(self):
+        print(f"I am {self.name}, from {self._origin}!")
+
+    def show_power(self):
+        print(f"My secret power is {self.__power}")
+
+# Subclass with inheritance and method override
+class FlyingHero(Superhero):
+    def __init__(self, name, origin, flight_speed):
+        super().__init__(name, "Flying", origin)
+        self.flight_speed = flight_speed
+
+    def show_power(self):  # Polymorphism!
+        print(f"I can fly at {self.flight_speed} mph!")
+
+# Create objects
+hero1 = Superhero("ShadowStrike", "Invisibility", "Neo City")
+hero2 = FlyingHero("SkyBlaze", "Skyhaven", 300)
+
+# Test
+hero1.reveal_identity()
+hero1.show_power()
+print("-----")
+hero2.reveal_identity()
+hero2.show_power()
